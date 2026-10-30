@@ -1,0 +1,31 @@
+WorkLedger (मराठी आवृत्ती) - CodInt Digitech
+=============================================
+आवश्यकता: PHP 7.4 किंवा नवीन, MySQL / MariaDB.
+
+XAMPP वर चालवणे
+1. "workledger" फोल्डर C:\xampp\htdocs\ मध्ये कॉपी करा.
+2. XAMPP Control Panel मध्ये Apache आणि MySQL सुरू करा.
+3. http://localhost/phpmyadmin > Import > database.sql निवडा > Go.
+4. http://localhost/workledger/ उघडा.
+5. लॉग इन:  admin / Admin@123     manager / Manager@123
+   दोन्ही पासवर्ड लगेच बदला (प्रोफाइल पेज किंवा प्रशासकाचे "वापरकर्ते" पेज).
+
+cPanel वर चालवणे
+1. MySQL Databases मध्ये डेटाबेस व युजर तयार करा आणि सर्व अधिकार द्या.
+2. phpMyAdmin मध्ये database.sql मधील पहिल्या दोन ओळी (CREATE DATABASE आणि USE) हटवून इम्पोर्ट करा.
+3. config.php मध्ये DB_HOST, DB_USER, DB_PASS, DB_NAME आणि MAIL_FROM भरा.
+4. फोल्डरमधील फाइल्स public_html मध्ये अपलोड करा.
+5. खऱ्या क्लायंटसाठी database.sql मधील नमुना माहितीचा भाग हटवा.
+
+भूमिका
+प्रशासक  : सर्व काही - कामांचे दर, हटवणे, मंजूर नोंदी संपादन, पेमेंट संपादन/हटवणे, वापरकर्ते.
+व्यवस्थापक : कर्मचारी, कामाच्या नोंदी, मंजुरी, मजुरी, पेमेंट जोडणे, अहवाल. दर बदलणे व हटवणे शक्य नाही.
+            फक्त प्रशासकानेच मंजुरी द्यावी असे हवे असल्यास config.php मध्ये MANAGER_CAN_APPROVE = false करा.
+
+पासवर्ड रीसेट
+XAMPP (लोकल) : रीसेट लिंक स्क्रीनवरच दिसते.
+लाइव्ह सर्व्हर : लिंक ईमेलने जाते (PHP mail()). प्रत्येक वापरकर्त्यासाठी ईमेल भरा.
+
+लॉग इनमध्ये अडचण असल्यास
+http://localhost/workledger/fix_login.php उघडा. ते PHP, डेटाबेस आणि दोन्ही वापरकर्ते तपासते, आणि एका बटणाने
+admin / Admin@123 व manager / Manager@123 पुन्हा सेट होतात. नंतर fix_login.php हटवा.
